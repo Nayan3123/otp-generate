@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTP Login Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    input {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:disabled {
+      background-color: #ccc;
+    }
+    .message {
+      color: red;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>OTP Login</h2>
+    
+    <!-- Phone Number Input -->
+    <div id="phone-section">
+      <input type="text" id="phoneNumber" placeholder="Enter your mobile number">
+      <button id="sendOTP" onclick="sendOTP()">Send OTP</button>
+    </div>
+    
+    <!-- OTP Input -->
+    <div id="otp-section" style="display:none;">
+      <input type="text" id="otp" placeholder="Enter OTP">
+      <button id="verifyOTP" onclick="verifyOTP()">Verify OTP</button>
+    </div>
+    
+    <div id="message" class="message"></div>
+  </div>
+
+  <script>
+    // Function to send OTP (Here we're just simulating OTP sending)
+    function sendOTP() {
+      var phoneNumber = document.getElementById("phoneNumber").value;
+      
+      if(phoneNumber.length === 10) {
+        // Simulate sending OTP
+        document.getElementById("phone-section").style.display = "none";
+        document.getElementById("otp-section").style.display = "block";
+        document.getElementById("message").innerText = "OTP has been sent to your mobile!";
+      } else {
+        document.getElementById("message").innerText = "Please enter a valid 10-digit mobile number.";
+      }
+    }
+
+    // Function to verify OTP (Here we're just simulating OTP verification)
+    function verifyOTP() {
+      var otp = document.getElementById("otp").value;
+      
+      if(otp === "123456") { // Simulating correct OTP as '123456'
+        document.getElementById("message").innerText = "OTP verified successfully! You are now logged in.";
+      } else {
+        document.getElementById("message").innerText = "Invalid OTP. Please try again.";
+      }
+    }
+  </script>
+</body>
+</html>
+￼Enter
